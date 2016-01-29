@@ -1,0 +1,27 @@
+busybox sed
+  s[x[y[
+  's/[^,]*/"&"/4' <<< a,b,c,d,e
+  s/^x/_/2 <<< xx   ->   _x
+
+gnu sed
+  y/\x00
+
+toybox
+  seq
+  find ???
+  gzip in compress.c
+  sed \xAB
+  hexedit breaks terminal if run from a pipe
+
+bash
+  musl segfault
+  var='a   b   /*   c'; echo "${x?$var}"     eats whitespace, doesn't expand glob
+  lib/sh/tmpfile.c checks if USE_MKTEMP and USE_MKSTEMP are defined, but they're never defined
+
+script
+  faketty foo <<< x
+  poll([{fd=4, events=POLLIN}], 1, 10)    = 1 ([{fd=4, revents=POLLIN}])    forever
+
+shy
+awk
+bc
