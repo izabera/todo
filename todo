@@ -1,7 +1,10 @@
 busybox sed
-  s[x[y[
+  s[x[y[    <- fixed, send patch to ml
   's/[^,]*/"&"/4' <<< a,b,c,d,e
   s/^x/_/2 <<< xx   ->   _x
+
+busybox id
+  -r prints help instead
 
 gnu sed
   y/\x00
@@ -14,7 +17,7 @@ toybox
   hexedit breaks terminal if run from a pipe
 
 bash
-  musl segfault
+  musl segfault  <- musl returns -1 with sbrk and bash doesn't like it
   var='a   b   /*   c'; echo "${x?$var}"     eats whitespace, doesn't expand glob
   lib/sh/tmpfile.c checks if USE_MKTEMP and USE_MKSTEMP are defined, but they're never defined
 
