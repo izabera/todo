@@ -3,9 +3,6 @@ busybox sed
   's/[^,]*/"&"/4' <<< a,b,c,d,e
   s/^x/_/2 <<< xx   ->   _x
 
-busybox id
-  -r prints help instead
-
 gnu sed
   y/\x00
 
@@ -15,11 +12,17 @@ toybox
   gzip in compress.c
   sed \xAB
   hexedit breaks terminal if run from a pipe
+  https://arin.ga/jN3Ujp/raw  show this to landley to prove that it's worth improving wc
+  grep quits when run on a binary file?
 
 bash
   musl segfault  <- musl returns -1 with sbrk and bash doesn't like it
   var='a   b   /*   c'; echo "${x?$var}"     eats whitespace, doesn't expand glob
   lib/sh/tmpfile.c checks if USE_MKTEMP and USE_MKSTEMP are defined, but they're never defined
+  exec resets traps
+  $ ./cc1 c.c | cc2
+  bash: correct 'cc2' to 'cc' [nya]? 
+  [1]+  Stopped                 ./cc1 c.c | cc2
 
 script
   faketty foo <<< x
@@ -28,3 +31,6 @@ script
 shy
 awk
 bc
+
+suckless sed
+  sed 's/[^x]/x/g' <<< èè   -> xxxx
