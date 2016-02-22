@@ -2,6 +2,13 @@ busybox sed
   s[x[y[    <- fixed, send patch to ml
   's/[^,]*/"&"/4' <<< a,b,c,d,e
   s/^x/_/2 <<< xx   ->   _x
+  '{' and '}' are valid scripts
+
+busybox grep
+  $ echo '_a axyz' | busybox grep -wo 'a[^z]*z'     <- returns nothing
+  probably advances pointer after end of match
+  must advance it after start of match
+
 
 gnu sed
   y/\x00
@@ -20,6 +27,7 @@ bash
   var='a   b   /*   c'; echo "${x?$var}"     eats whitespace, doesn't expand glob
   lib/sh/tmpfile.c checks if USE_MKTEMP and USE_MKSTEMP are defined, but they're never defined
   exec resets traps
+  : << :   warning no error
   $ ./cc1 c.c | cc2
   bash: correct 'cc2' to 'cc' [nya]? 
   [1]+  Stopped                 ./cc1 c.c | cc2
