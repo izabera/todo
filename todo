@@ -31,6 +31,8 @@ bash
   $ ./cc1 c.c | cc2
   bash: correct 'cc2' to 'cc' [nya]? 
   [1]+  Stopped                 ./cc1 c.c | cc2
+  problem with ?(/)
+  *ast*eek*onight*?(/)*@(mkv|mp4|avi) matches Last.Week.Tonight.With.John.Oliver.S02E28.HDTV.x264-BATV[rarbg]/
 
 script
   faketty foo <<< x
