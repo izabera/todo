@@ -44,3 +44,10 @@ bc
 
 suckless sed
   sed 's/[^x]/x/g' <<< èè   -> xxxx
+  add -s
+  fix l
+  seems to leak fds?  add fclose
+
+suckless chmod
+  parses stuff with a function that returns -1 on error but the return type is mode_t
+  also their parser is stupid
