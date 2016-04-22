@@ -47,7 +47,20 @@ suckless sed
   add -s
   fix l
   seems to leak fds?  add fclose
+  sed 's&x&\&&' <<< x   ->  x
+  s/a/b/c/d/e/f/g/... is valid??
 
 suckless chmod
   parses stuff with a function that returns -1 on error but the return type is mode_t
   also their parser is stupid
+
+suckless printf
+  interprets \c
+  doesn't interpret %%
+  aborts on invalid formats after printing part of the output
+  strdup+free multiple times in a loop
+    $ time sbase printf %.s {1..300000}
+    real: 0m1.408s, user: 0m1.280s, sys: 0m0.120s
+    $ time printf %.s {1..300000}
+    real: 0m0.407s, user: 0m0.397s, sys: 0m0.010s
+  printf \0001 is wrong
